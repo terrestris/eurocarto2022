@@ -1,0 +1,604 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="./img/geostyler_logo.svg">
+
+		<title>GeoStyler – Generic Styler for Geodata</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/simple.css">
+		<link rel="stylesheet" href="terrestris.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+        <section id="title"
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 85%">
+          <div class="r-stretch fragment"><br><br><br>
+            <h2>GeoStyler – Generic Styler for Geodata</h2>
+            <p>
+              <small>Johannes Weskamm, terrestris GmbH &amp; Co. KG</small> <br />
+              <small>Jan Suleiman, terrestris GmbH &amp; Co. KG</small> <br />
+              <small>Daniel Koch, terrestris GmbH &amp; Co. KG</small> <br />
+              <small>Kai Volland, terrestris GmbH &amp; Co. KG</small> <br />
+              <small>Marc Jansen, terrestris GmbH &amp; Co. KG</small> <br />
+              <small>Christian Mayer, meggsimum</small>
+            </p>
+          </div>
+        </section>
+
+        <section id="author-johannes-weskamm">
+          <h2>Johannes Weskamm</h2>
+          <div class="split-info">
+            <div class="part" style="width:35%">
+              <img src="./img/jw.jpg" class="plain" width="300"/><br />
+              <small>
+                <a class="email" href="mailto:weskamm@terrestris.de">weskamm@terrestris.de</a><br />
+                <a class="github" href="https://github.com/weskamm/">@weskamm</a><br />
+              </small><br />
+            </div>
+            <div class="part" style="width:60%">
+              <div class="enumeration">
+                <ul>
+                  <li>Diploma in Geography</li>
+                  <li>Full-Stack Developer @terrestris<br />Bonn, Germany</li>
+                  <li>GeoStyler Core Developer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div style="clear:both"></div>
+        </section>
+
+
+        <!-- TABLE OF CONTENTS -->
+        <section id="toc"
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>Contents</h2>
+          <div class="r-stretch v-center h-center">
+            <ol>
+              <li>What is GeoStyler?</li>
+              <li>How to use it?</li>
+              <ul>
+                <li>The demo website</li>
+                <li>Code integration</li>
+                <li>On the commandline</li>
+                <li>The REST API</li>
+              </ul>
+              <li>Latest features</li>
+              <li>What's next?</li>
+              <li>Getting help and information</li>
+            </ol>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <br>
+          <div class="r-stretch h-center">
+            <ul>
+              <li>A set of tools that help creating and converting between different style formats</li>
+              <li>Open Source, based on TypeScript</li>
+              <li>Official OSGeo Community Project</li>
+            </ul>
+            <br>
+            <br>
+            <img src="./img/osgeo.svg" /><br />
+            <small>See <a href="https://www.osgeo.org/projects/geostyler/">osgeo.org</a></small>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <br>
+          <div class="r-stretch">
+            <p>Currently supported Formats:</p>
+            <br>
+            <ul>
+              <li>SLD (1.0 and 1.1)</li>
+              <li>Mapfiles for UMN MapServer</li>
+              <li>QGIS Style</li>
+              <li>ArcGIS Mapfiles - TODO check state</li>
+              <li>OpenLayers Style</li>
+              <li>GeoStyler Style</li>
+              <li>TODO check for more, mapbox?</li>
+            </ul>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <div class="r-stretch v-center h-center">
+            <ul>
+              <li>Graphical editor for styling geodata</li>
+              <li>Converter of styling formats</li>
+            </ul>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Graphical editor for styling geodata</span>
+          <div class="r-stretch r-stack">
+            <img class="img-shadow" src="./img/geostyler-demo.png" />
+            <img class="fragment img-shadow" src="./img/geoportal_koblenz.png" />
+            <img class="fragment img-shadow" src="./img/bismap.png" />
+            <span class="fragment fade-in-then-out blurry-banner">GeoStyler is NOT an application</span><br />
+            <span class="fragment blurry-banner">GeoStyler is a LIBRARY that can  be integrated into your own application</span>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Converter of styling formats</span>
+          <div class="r-stretch h-center v-center">
+            <img src="./img/parser.svg" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Converter of styling formats</span>
+          <div class="r-stretch">
+            <img src="./img/sld_parsing.svg" />
+            <div class="fragment h-split-code low-height">
+              <pre class="code-small"><code data-trim>
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                  <StyledLayerDescriptor version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <NamedLayer>
+                      <Name>Demo Style</Name>
+                      <UserStyle>
+                        <Name>Demo Style</Name>
+                        <Title>Demo Style</Title>
+                        <FeatureTypeStyle>
+                          <Rule>
+                            <Name>Rule 1</Name>
+                            <PointSymbolizer>
+                              <Graphic>
+                                <Mark>
+                                  <WellKnownName>circle</WellKnownName>
+                                </Mark>
+                              </Graphic>
+                            </PointSymbolizer>
+                          </Rule>
+                        </FeatureTypeStyle>
+                      </UserStyle>
+                    </NamedLayer>
+                  </StyledLayerDescriptor>
+              </code></pre>
+              <pre class="code-small"><code data-trim>
+                {
+                  "name": "Demo Style",
+                  "rules": [
+                    {
+                      "name": "Rule 1",
+                      "symbolizers": [
+                        {
+                          "kind": "Mark",
+                          "wellKnownName": "circle"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              </code></pre>
+            </div>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Converter of styling formats</span>
+          <div class="r-stretch h-center v-center">
+            <img src="./img/translate.svg" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Converter of styling formats</span>
+          <div class="r-stretch">
+            <img src="./img/translate_example.svg" />
+            <div class="fragment h-split-code low-height">
+              <pre class="code-small"><code data-trim>
+                LAYER
+                  NAME "point_simple_point"
+                  TYPE POINT
+                  DATA "../shapes/points.shp"
+                  EXTENT -180 -90 180 90
+                  METADATA
+                    "wms_title" "point_simple_point"
+                    "wms_srs" "EPSG:4326"    
+                  END
+                  CLASS
+                    STYLE
+                      SYMBOL "circle"
+                      COLOR 0 255 0
+                      SIZE 15
+                    END
+                  END
+                END
+              </code></pre>
+              <pre class="code-small"><code data-trim>
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                  <StyledLayerDescriptor version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <NamedLayer>
+                      <Name>Demo Style</Name>
+                      <UserStyle>
+                        <Name>Demo Style</Name>
+                        <Title>Demo Style</Title>
+                        <FeatureTypeStyle>
+                          <Rule>
+                            <Name>Rule 1</Name>
+                            <PointSymbolizer>
+                              <Graphic>
+                                <Mark>
+                                  <WellKnownName>circle</WellKnownName>
+                                </Mark>
+                              </Graphic>
+                            </PointSymbolizer>
+                          </Rule>
+                        </FeatureTypeStyle>
+                      </UserStyle>
+                    </NamedLayer>
+                  </StyledLayerDescriptor>
+              </code></pre>
+            </div>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>How to use it?</h2>
+          <br><br>
+          <div class="r-stretch">
+            <span>Several ways how you can use GeoStyler:</span>
+            <ul>
+              <li>The demo website</li>
+              <li>Code integration</li>
+              <li>On the commandline</li>
+              <li>The REST API</li>
+            </ul>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>How to use it?</h2>
+          <span>The demo website</span>
+          <a href="https://geostyler.github.io/geostyler-demo/">https://geostyler.github.io/geostyler-demo/</a>
+          <div class="r-stretch h-center v-center">
+            <img src="./img/geostyler-demo.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/code.png"
+          data-background-opacity="0.25"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>How to use it?</h2>
+          <span>Code</span><br>
+          <a href="https://github.com/geostyler">https://github.com/geostyler</a>
+          <div class="r-stretch h-center v-center">
+            <img src="./img/github.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>How to use it?</h2>
+          <span>On the commandline</span>
+          <br><br>
+          <div class="r-stretch">
+              <h4>GeoStyler CLI</h4>
+              <span>Automated conversion between styling formats</span>
+              <pre><code data-trim class="language-bash">
+                geostyler -s qgis -t sld -o output.sld input.qml
+              </code></pre>
+              <small>See <a href="https://github.com/geostyler/geostyler-cli">geostyler-cli</a></small>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>How to use it?</h2>
+          <span>The REST API</span>
+          <br>
+          <small>See <a href="https://github.com/geostyler/geostyler-rest">geostyler-rest</a></small>
+          <div class="r-stretch">
+              <img src="./img/rest-api.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>Latest features</h2>
+          <div class="r-stretch">
+            <h4><a href="https://geostyler.github.io/geostyler-cookbook/">User manual</a></h4>
+            <img class="img-shadow" src="./img/usermanual.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>Latest features</h2>
+          <div class="r-stretch">
+            <h4>Card layout</h4>
+            <img class="img-shadow" src="./img/cardlayout.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>Latest features</h2>
+          <div class="r-stretch">
+            <h4>Enhanced GeoServer Plugin</h4>
+            <img class="img-shadow" src="./img/geostyler-geoserver-plugin.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/expressions.png"
+          data-background-opacity="0.2"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>Latest features</h2>
+          <div class="r-stretch">
+            <h4>Support for expressions</h4>
+            <br><br>
+            <ul>
+              <li>Using functions in styles</li>
+              <ul>
+                <li>Allows setting style properties attributively and feature-based</li>
+                <li>Allows for more compact and dynamic styles</li>
+                <li>Currently supported in GeoStyler style, SLD and CQL parser. More to come...</li>
+              </ul>
+            </ul>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What's next?</h2>
+          <div class="r-stretch r-stack">
+            <div class="fragment fade-in-then-out">
+              <h4>More styling formats</h4>
+              <span>?? geostyler-arcgis-parser ??</span><br />
+              <small>on-going discussion...</small>
+            </div>
+            <div class="fragment fade-in-then-out">
+              <h4>QGIS Plugin</h4>
+              <span>Import/Export Styles in QGIS</span><br />
+            </div>
+            <div class="fragment fade-in-then-out">
+              <h4>Next GeoStyler Code Sprint</h4>
+              <span>Bugfixing, New Features, Community Building</span><br />
+              <small>When? TBA</small>
+            </div>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>Getting help and information</h2>
+          <h4>The Project Website</h4>
+          <div class="r-stretch">
+            <span>Infos, docs &amp; tutorials on geostyler.org</span><br />
+            <small>See <a href="https://geostyler.org/">geostyler.org</a></small><br />
+            <iframe class="iframe-small img-shadow" src="https://geostyler.org" scrolling="no"></iframe>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <div class="r-stretch v-center h-center">
+            <div>
+              <h2>Thank you for your attention</h2><br />
+            </div>
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section id="imprint">
+          <h2>Imprint</h2>
+          <h4>Authors</h4>
+
+          <div style="width: 45%; float: right;">
+            <address style="text-align: right">
+              <span style="font-size: smaller;">
+                terrestris GmbH &amp; Co. KG<br />
+                K&ouml;lnstr. 99, 53111 Bonn<br />
+                Germany<br />
+              </span><br><br>
+              <span style="font-size: smaller;">
+                meggsimum<br />
+                Schillerstraße 2a, 67112 Mutterstadt<br />
+                Germany<br />
+              </span>
+            </address>
+          </div>
+          <div style="width: 45%; float: left;">
+            <address style="text-align: left">
+              <strong>Johannes Weskamm</strong><br>
+              <strong>Jan Suleiman</strong><br>
+              <strong>Marc Jansen</strong><br>
+              <strong>Daniel Koch</strong><br>
+              <strong>Kai Volland</strong><br><br>
+              <strong>Christian Mayer</strong>
+            </address>
+          </div>
+        </section>
+
+        <section id="imprint">
+          <h4 style="clear:both;">License</h4>
+          <p id="license">
+            <small>
+              Slides are published under <a
+              href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>
+	      license.<br />
+              <a href="https://terrestris.github.io/eurocarto2022/geostyler">terrestris.github.io/eurocarto2022/geostyler</a><br />
+              <a href="https://terrestris.github.io/eurocarto2022/geostyler/geostyler.pdf">PDF-Version</a>,
+              <a href="https://github.com/terrestris/eurocarto2022">git repository</a>
+            </small>
+          </p>
+          <p>
+          </p>
+        </section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+        controlsTutorial: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
