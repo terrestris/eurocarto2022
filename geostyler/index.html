@@ -115,18 +115,17 @@
           data-background-position="bottom 10px left 10px"
         >
           <h2>What is GeoStyler?</h2>
-          <br>
           <div class="r-stretch">
-            <p>Currently supported Formats:</p>
+            <p>Currently supported style formats:</p>
             <br>
             <ul>
               <li>SLD (1.0 and 1.1)</li>
-              <li>Mapfiles for UMN MapServer</li>
-              <li>QGIS Style</li>
-              <li>ArcGIS Mapfiles - TODO check state</li>
-              <li>OpenLayers Style</li>
-              <li>GeoStyler Style</li>
-              <li>TODO check for more, mapbox?</li>
+              <li>Mapfiles for MapServer</li>
+              <li>QGIS</li>
+              <li>CQL (Filters)</li>
+              <li>OpenLayers</li>
+              <li>MapBox</li>
+              <li>GeoCSS</li>
             </ul>
           </div>
           <footer>
@@ -158,10 +157,38 @@
         >
           <h2>What is GeoStyler?</h2>
           <span>Graphical editor for styling geodata</span>
-          <div class="r-stretch r-stack">
+          <div class="r-stretch">
             <img class="img-shadow" src="./img/geostyler-demo.png" />
-            <img class="fragment img-shadow" src="./img/geoportal_koblenz.png" />
-            <img class="fragment img-shadow" src="./img/bismap.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Graphical editor for styling geodata</span>
+          <div class="r-stretch">
+            <img class="img-shadow" src="./img/geoportal_koblenz.png" />
+          </div>
+          <footer>
+            <span>GeoStyler – Generic Styler for Geodata, EuroCarto2022</span>
+          </footer>
+        </section>
+
+        <section
+          data-background-image="./img/geostyler_logo.svg"
+          data-background-size="auto 4%"
+          data-background-position="bottom 10px left 10px"
+        >
+          <h2>What is GeoStyler?</h2>
+          <span>Graphical editor for styling geodata</span>
+          <div class="r-stretch r-stack">
+            <img class="img-shadow" src="./img/bismap.png" />
             <span class="fragment fade-in-then-out blurry-banner">GeoStyler is NOT an application</span><br />
             <span class="fragment blurry-banner">GeoStyler is a LIBRARY that can  be integrated into your own application</span>
           </div>
@@ -323,11 +350,10 @@
           data-background-position="bottom 10px left 10px"
         >
           <h2>How to use it?</h2>
-          <br><br>
           <div class="r-stretch">
-            <span>Several ways how you can use GeoStyler:</span>
+            <span>Several ways how you can use GeoStyler:</span><br><br><br>
             <ul>
-              <li>The demo website</li>
+              <li>The demo website (limited, just a showcase!)</li>
               <li>Code integration</li>
               <li>On the commandline</li>
               <li>The REST API</li>
@@ -380,7 +406,7 @@
           <br><br>
           <div class="r-stretch">
               <h4>GeoStyler CLI</h4>
-              <span>Automated conversion between styling formats</span>
+              <span>Conversion between styling formats:</span>
               <pre><code data-trim class="language-bash">
                 geostyler -s qgis -t sld -o output.sld input.qml
               </code></pre>
